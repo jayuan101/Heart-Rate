@@ -1,0 +1,80 @@
+import java.util.Calendar;
+
+import java.util.GregorianCalendar;
+public class HeartRate
+{
+   private String fname;
+   private String lname;
+   private int day;
+   private int month;
+   private int year;
+
+  
+   //Parameterized constructor that sets the first name,
+   //last name and day,month and year
+   public HeartRate(String fname,String lname,int day,int month,int year)
+   {
+       this.fname=fname;
+       this.lname=lname;
+       this.day=day;
+       this.month=month;
+       this.year=year;
+   }
+   //setter metods
+   public void setFirstName(String fname)
+   {
+       this.fname=fname;              
+   }
+   public void setLastName(String lname)
+   {      
+       this.lname=lname;
+
+   }
+   public void setDate(int day,int month,int year)
+   {
+       this.day=day;
+       this.month=month;
+       this.year=year;
+   }
+
+  
+   //getter methods
+   public String getFirstName()
+   {
+       return fname;              
+   }
+   public String getLastName()
+   {      
+       return lname;      
+   }
+
+
+   //Returns the age of the person
+   public int getAge()
+   {
+       Calendar cal = new GregorianCalendar(year, month, day);
+        Calendar now = new GregorianCalendar();
+        int res = now.get(Calendar.YEAR) - cal.get(Calendar.YEAR);
+        return res;
+   }
+
+
+  
+   //Calculats the maximum heart rate
+   public int maximumHeartRate()
+   {
+       return 220-getAge();
+   }
+
+   //Calculats the target heart rate
+   public int targetHeartRate()
+   {
+       int minimum=50;
+       int maximum=85;
+       //generates a number in between 50 and 85
+       int randomNum = minimum + (int)(Math.random()*maximum);
+       //return a target heart rate on maximumheart rate.
+       return maximumHeartRate()*randomNum/100;
+   }
+  
+}

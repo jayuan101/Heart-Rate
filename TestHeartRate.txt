@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class TestHeartRates
+{
+   public static void main(String[] args)
+   {
+       Scanner reader=new Scanner(System.in);
+      
+       System.out.println("First name : ");
+       String fname=reader.nextLine();
+       System.out.println("Last name : ");
+       String lname=reader.nextLine();
+       System.out.println("Enter day : ");
+       int day=Integer.parseInt(reader.nextLine());
+      
+       System.out.println("Enter month : ");
+       int month=Integer.parseInt(reader.nextLine());
+      
+       System.out.println("Enter year : ");
+       int year=Integer.parseInt(reader.nextLine());
+      
+       HeartRate heartRate=new HeartRate(fname, lname, day, month, year);
+      
+       System.out.println("Name : "+heartRate.getFirstName()+" "+heartRate.getLastName());
+       System.out.println("Age : "+heartRate.getAge());
+       System.out.println("Maximum heart rate :"+heartRate.maximumHeartRate());
+       System.out.println("Minimum heart rate :"+heartRate.targetHeartRate());
+      
+   }
+}
